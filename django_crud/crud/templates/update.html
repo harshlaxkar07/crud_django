@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!--    <form method="POST" style=" height:600px; padding:20px; background-color: rgb(198, 198, 288,0.93) ; max-width:50%; margin:5px 250px" action="{% url 'update' member.id %}">-->
+    <form method="POST" class="form" action="{% url 'update' member.id %}">
+
+        <h1  style="text-align:center;" >Update Member</h1>
+        <br>
+        <br>
+        {% csrf_token %}
+        <div class="mb-3">
+            <input type="text" class="input form-control" name="firstname" aria-describedby="First Name" placeholder="First Name" value="{{ form.firstname.value|default:member.firstname }}">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="input form-control" name="lastname" aria-describedby="Last Name" placeholder="Last Name" value="{{ form.lastname.value|default:member.lastname }}">
+        </div>
+        <div class="mb-3">
+            <input type="number" class="input form-control" name="age" aria-describedby="Age" placeholder="Age" value="{{ form.age.value|default:member.age }}">
+        </div>
+        <div class="mb-3">
+            <input type="number" class="input form-control" name="phone" aria-describedby="Phone" placeholder="Phone" value="{{ form.phone.value|default:member.phone }}">
+        </div>
+        <div class="mb-3">
+            <input type="email" class="input form-control" name="email" aria-describedby="Email" placeholder="Email Address" value="{{ form.email.value|default:member.email }}">
+        </div>
+        <div class="mb-3">
+            <input type="password" class="input form-control" id="password" name="password" placeholder="Password" value="{{ form.password.value|default:'' }}">
+            <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"> Show Password
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{% url 'read' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var checkbox = document.getElementById("showPassword");
+            if (checkbox.checked) {
+                passwordInput.type = "text"; // Show password
+            } else {
+                passwordInput.type = "password"; // Hide password
+            }
+        }
+    </script>
+{% endblock %}
+
+

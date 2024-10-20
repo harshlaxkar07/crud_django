@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <form method="POST" class="form"  action="{% url 'create' %}">
+<!--<form method="POST"  action="{% url 'create' %}">-->
+
+<h1 style="text-align:center;" >
+  Member Form ( Create )
+</h1>
+<br/>
+  {% csrf_token %}
+  <div class="mb-3">
+    <input type="text" class="input form-control" name="firstname" aria-describedby="First Name" placeholder="First Name" value="{{firstname}}">
+  </div>
+  <div class="mb-3">
+    <input type="text" class="input form-control" name="lastname" aria-describedby="First Name" placeholder="Last Name" value="{{lastname}}">
+  </div>
+  <div class="mb-3">
+    <input type="number" class="input form-control" name="age" aria-describedby="age" placeholder="Age" value="{{age}}">
+  </div>
+  <div class="mb-3">
+    <input type="number" class="input form-control" name="phone" aria-describedby="phone" placeholder="Phone" value="{{phone}}">
+  </div>
+    <div class="mb-3">
+    <input type="email" class="input form-control" name="email" aria-describedby="Email" placeholder="Email Address" value="{{email}}">
+  </div>
+  <div class="mb-3">
+    <input type="password" class="input form-control" name="password" placeholder="Password" value="{{password}}">
+  </div>
+  <button type="submit"  class="btn btn-secondary">Sign up</button>
+</form>
+
+{% endblock %}
+
+
+
