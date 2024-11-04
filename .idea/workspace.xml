@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5197768e-4eb8-495a-bc9b-4680075b0018" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/django_crud/crud/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_crud/crud/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_crud/crud/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/django_crud/crud/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/django_crud/crud/templates/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/django_crud/crud/templates/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_crud/crud/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/django_crud/crud/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/django_crud/crud/templates/read.html" beforeDir="false" afterPath="$PROJECT_DIR$/django_crud/crud/templates/read.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_crud/crud/templates/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/django_crud/crud/templates/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_crud/crud/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_crud/crud/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_crud/crud/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_crud/crud/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/django_crud/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/django_crud/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +34,7 @@
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sagar/PycharmProjects/django_crud/django_crud/crud/templates&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sagar/PycharmProjects/django_crud&quot;
   }
 }</component>
   <component name="RecentsManager">
