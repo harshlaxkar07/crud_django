@@ -1,35 +1,29 @@
 {% extends 'base.html' %}
+
+{% block title %}Add a member &mdash; Member Directory{% endblock %}
+
 {% block content %}
+<div class="page-head">
+  <div>
+    <h1>Add a member</h1>
+    <p>Names accept letters only, the email is checked for shape, and every field is validated before the record is saved.</p>
+  </div>
+</div>
 
-    <form method="POST" class="form"  action="{% url 'create' %}">
+<div class="card" style="max-width:720px">
+  <div class="card-body">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-grid">{{ form.as_p }}</div>
 
-    <h1 style="text-align:center;" >
-        Member Form ( Create )
-    </h1>
-    <br/>
-        {% csrf_token %}
-        <div class="mb-3">
-            <input type="text" class="input form-control" name="firstname" pattern="[A-Za-z]+" title="Only alphabets are allowed" aria-describedby="First Name" placeholder="First Name" value="{{firstname}}">
-        </div>
-        <div class="mb-3">
-            <input type="text" class="input form-control" name="lastname" pattern="[A-Za-z]+" title="Only alphabets are allowed" aria-describedby="First Name" placeholder="Last Name" value="{{lastname}}">
-        </div>
-        <div class="mb-3">
-            <input type="number" class="input form-control" name="age" aria-describedby="age" placeholder="Age" value="{{age}}">
-        </div>
-        <div class="mb-3">
-            <input type="number" class="input form-control" name="phone" aria-describedby="phone" placeholder="Phone" value="{{phone}}">
-        </div>
-            <div class="mb-3">
-            <input type="email" class="input form-control" name="email" aria-describedby="Email" placeholder="Email Address" value="{{email}}">
-        </div>
-        <div class="mb-3">
-            <input type="password" class="input form-control" name="password" placeholder="Password" value="{{password}}">
-        </div>
-        <button type="submit"  class="btn btn-secondary">Sign up</button>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          Save member
+        </button>
+        <a class="btn" href="{% url 'read' %}">Cancel</a>
+      </div>
     </form>
-
+  </div>
+</div>
 {% endblock %}
-
-
-

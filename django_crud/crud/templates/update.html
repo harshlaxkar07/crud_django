@@ -1,47 +1,45 @@
 {% extends 'base.html' %}
+
+{% block title %}Edit {{ member.firstname }} &mdash; Member Directory{% endblock %}
+
 {% block content %}
+<div class="page-head">
+  <div>
+    <h1>Edit {{ member.firstname }} {{ member.lastname }}</h1>
+    <p>The form is pre-filled from the stored record. The same validators apply to every change.</p>
+  </div>
+</div>
 
-<!--    <form method="POST" style=" height:600px; padding:20px; background-color: rgb(198, 198, 288,0.93) ; max-width:50%; margin:5px 250px" action="{% url 'update' member.id %}">-->
-    <form method="POST" class="form" action="{% url 'update' member.id %}">
+<div class="card" style="max-width:720px">
+  <div class="card-head">
+    <div class="member-cell">
+      <div class="avatar">{{ member.firstname|slice:":1"|upper }}{{ member.lastname|slice:":1"|upper }}</div>
+      <div class="mb">
+        <div class="mn">{{ member.firstname }} {{ member.lastname }}</div>
+        <div class="me mono">Member #{{ member.id }}</div>
+      </div>
+    </div>
+  </div>
 
-        <h1  style="text-align:center;" >Update Member</h1>
-        <br>
-        <br>
-        {% csrf_token %}
-        <div class="mb-3">
-            <input type="text" class="input form-control" name="firstname" aria-describedby="First Name" placeholder="First Name" value="{{ form.firstname.value|default:member.firstname }}">
-        </div>
-        <div class="mb-3">
-            <input type="text" class="input form-control" name="lastname" aria-describedby="Last Name" placeholder="Last Name" value="{{ form.lastname.value|default:member.lastname }}">
-        </div>
-        <div class="mb-3">
-            <input type="number" class="input form-control" name="age" aria-describedby="Age" placeholder="Age" value="{{ form.age.value|default:member.age }}">
-        </div>
-        <div class="mb-3">
-            <input type="number" class="input form-control" name="phone" aria-describedby="Phone" placeholder="Phone" value="{{ form.phone.value|default:member.phone }}">
-        </div>
-        <div class="mb-3">
-            <input type="email" class="input form-control" name="email" aria-describedby="Email" placeholder="Email Address" value="{{ form.email.value|default:member.email }}">
-        </div>
-        <div class="mb-3">
-            <input type="password" class="input form-control" id="password" name="password" placeholder="Password" value="{{ form.password.value|default:'' }}">
-            <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"> Show Password
-        </div>
-        <button type="submit" class="btn btn-primary">Update</button>
-        <a href="{% url 'read' %}" class="btn btn-secondary">Cancel</a>
+  <div class="card-body">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-grid">{{ form.as_p }}</div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          Save changes
+        </button>
+        <a class="btn" href="{% url 'read' %}">Cancel</a>
+        <div style="flex:1"></div>
+        <a class="btn btn-danger" href="{% url 'delete' member.id %}"
+           onclick="return confirm('Delete {{ member.firstname }} {{ member.lastname }}?')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          Delete member
+        </a>
+      </div>
     </form>
-
-    <script>
-        function togglePasswordVisibility() {
-            var passwordInput = document.getElementById("password");
-            var checkbox = document.getElementById("showPassword");
-            if (checkbox.checked) {
-                passwordInput.type = "text"; // Show password
-            } else {
-                passwordInput.type = "password"; // Hide password
-            }
-        }
-    </script>
+  </div>
+</div>
 {% endblock %}
-
-
